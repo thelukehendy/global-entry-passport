@@ -1,0 +1,33 @@
+Texture assets in this folder
+=============================
+
+us-flag.png
+-----------
+US Stars and Stripes flag (13 red/white stripes, blue canton with 50 white stars).
+
+Source: Generated locally by scripts/generate-us-flag.mjs using the official
+U.S. flag proportions and colors (Old Glory Red #BF0A30, White #FFFFFF,
+Old Glory Blue #002868). The design of the Flag of the United States is in
+the public domain in the United States (U.S. Government work / PD).
+
+This PNG was NOT downloaded from Wikimedia because the upload CDN returned HTTP 403
+from this environment; content matches the public-domain Flag of the United States.
+
+No trademark or insignia restrictions are claimed on the plain flag design itself
+for ordinary illustrative / game use. Do not imply government endorsement.
+
+trump-face.png / trump-face-smile.png / trump-face-celebrate.png
+------------------------------------------------------------
+Exact crops of user-provided caricature reference images, authorized for use
+in this project by the user (2026-07-18). Not redistributed as standalone art.
+
+Other textures
+--------------
+Runtime procedural textures under src/textures/ (faces, fabrics, skin, ground,
+wheelchair) are original canvas generators created for this project (CC0 / public
+domain dedication by the project authors — free to use).
+
+See also: public/models/ATTRIBUTION.txt for the Denys Almaral Trump FBX (CC BY 4.0)
+and Poly Pizza Big T (CC0) character assets.
+
+Generated: 2026-07-18

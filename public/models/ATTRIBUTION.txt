@@ -1,0 +1,30 @@
+3D character models
+===================
+
+trump-denys.fbx / trump-denys.png
+---------------------------------
+Low-poly Donald Trump character by Denys Almaral.
+Source: https://denysalmaral.com/2020/09/free-3d-models-of-donald-trump-and-joe-biden-in-low-poly-style-for-2020-elections.html
+License: Creative Commons Attribution 4.0 (CC BY 4.0)
+Attribution required: "Trump Character created by Denys Almaral" — https://denysalmaral.com
+Commercial use allowed with attribution. Do not resell/redistribute the model files alone.
+
+big-t.glb
+---------
+"Big T" by Polygonal Mind via Poly Pizza
+https://poly.pizza/m/Q3g8BKnXHA
+License: Public Domain (CC0)
+Kept as optional alternate / preview asset.
+
+trump-meshy.glb
+---------------
+"Angry Blue-Suit Bobblehead" generated with Meshy AI by @thelukehendy
+Share: https://www.meshy.ai/s/w5EYfU
+Canonical: https://www.meshy.ai/3d-models/Angry-BlueSuit-Bobblehead-019f773d-da97-7d4d-9c67-c74b5a1a23a6
+License (as shown on Meshy page): Creative Commons Zero (CC0)
+  https://creativecommons.org/publicdomain/zero/1.0/
+Page notes: free download (GLB/FBX/OBJ/STL), offer price $0, "Rigged: No".
+Primary Trump player model in-game. Converted from Meshy viewer `.meshy`
+container to standard GLB (meshopt decompressed; textures embedded as WebP).
+
+Generated: 2026-07-18

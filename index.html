@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#0a1a3f" />
+    <meta name="description" content="TRUMP'S PASSPORT PATROL — a loud arcade satire. Rally allies. Defend the border. Catch the Freedom Eagle." />
+    <title>TRUMP'S PASSPORT PATROL — Global Entry</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Rubik:wght@500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div id="canvas-container"></div>
+
+      <!-- ================= SPLASH ================= -->
+      <div id="splash" class="overlay show">
+        <div class="splash-inner">
+          <img id="splash-image" src="/images/splash-title.png" alt="Trump's Passport Patrol" />
+          <div class="splash-load"><div class="splash-load-bar"></div></div>
+        </div>
+      </div>
+
+      <!-- ================= START ================= -->
+      <div id="start-screen" class="overlay hidden">
+        <div class="panel start-panel">
+          <div class="kicker">A NON-STOP BUREAUCRACY POWER FANTASY</div>
+          <h1 class="game-title">TRUMP'S<br /><span class="gold">PASSPORT PATROL</span></h1>
+          <p class="tagline" id="start-tagline">Fling Global Entry passports. Rally allies. Keep the freeloaders out. It's gonna be HUGE.</p>
+          <div class="best-row">
+            <div class="best-chip"><span class="best-label">ALL-TIME BEST</span><span id="start-best" class="best-value">0</span></div>
+          </div>
+          <button id="begin-btn" class="btn btn-primary">BEGIN DEFENSE</button>
+          <button id="mute-toggle-start" class="btn btn-ghost">🔊 SOUND: ON</button>
+          <div class="controls-hint">Tap / click anywhere to throw &bull; Tap the 🦅 EAGLE for Freedom</div>
+          <div class="sound-tip">iPhone: Ring switch on · Safari tab unmuted · tap Begin or Sound to unlock audio</div>
+        </div>
+      </div>
+
+      <!-- Shown on mobile when AudioContext is still suspended -->
+      <button id="sound-prompt" type="button" class="sound-prompt hidden" aria-label="Tap to enable sound">TAP FOR SOUND</button>
+
+      <!-- ================= HUD ================= -->
+      <div id="hud" class="hidden">
+        <div id="hud-top">
+          <div id="stat-card">
+            <div class="stat-block allies">
+              <div class="stat-label">ALLIES RALLIED</div>
+              <div id="allies-count" class="stat-big">0</div>
+            </div>
+            <div class="stat-block delivered">
+              <span class="stat-label">DELIVERED</span>
+              <span id="delivered-count" class="stat-mid">0 / 0</span>
+            </div>
+            <div class="stat-block breaches">
+              <span class="stat-label">BREACHES</span>
+              <div id="breach-meter" class="breach-meter">
+                <span class="stamp"></span><span class="stamp"></span><span class="stamp"></span><span class="stamp"></span><span class="stamp"></span>
+              </div>
+            </div>
+          </div>
+
+          <div id="hud-right">
+            <div id="high-score">BEST <span id="hud-best">0</span></div>
+            <div id="cur-score">SCORE <span id="hud-score">0</span></div>
+            <button id="mute-btn" class="icon-btn" aria-label="Mute">🔊</button>
+          </div>
+        </div>
+
+        <div id="level-band">
+          <div id="level-label">LEVEL 1</div>
+          <div id="level-sub">NOW DEFENDING: FREEDOM</div>
+          <div id="level-progress"><div id="level-progress-fill"></div></div>
+        </div>
+
+        <div id="combo-pop" class="hidden"></div>
+        <div id="challenge-banner" class="hidden"></div>
+        <div id="hint">Tap / click to throw passports &mdash; rally allies before the border</div>
+        <div id="eagle-hint" class="hidden">🦅 FREEDOM EAGLE — TAP IT for a mass passport drop!</div>
+
+        <!-- Trump VO caption bubble -->
+        <div id="vo-bubble" class="hidden"><span id="vo-text"></span></div>
+
+        <!-- Cooldown meter -->
+        <div id="cooldown-wrap"><div id="cooldown-fill"></div></div>
+      </div>
+
+      <!-- Fake CNN-style ticker — always crawling (start + gameplay) -->
+      <div id="ticker" class="hidden" aria-live="polite">
+        <div id="ticker-tag">BREAKING</div>
+        <div id="ticker-track"><span id="ticker-text"></span></div>
+      </div>
+
+      <!-- ================= BANNERS ================= -->
+      <div id="eagle-banner" class="big-banner hidden"><div class="big-banner-inner">FREEDOM EAGLE!<span class="big-sub">MASS PASSPORT DROP</span></div></div>
+
+      <div id="level-complete" class="overlay hidden">
+        <div class="lc-inner">
+          <div id="lc-title" class="lc-title">LEVEL 1<br />COMPLETE</div>
+          <div id="lc-sub" class="lc-sub">Allies rallied &mdash; advancing to next border...</div>
+          <div id="lc-stats" class="lc-stats"></div>
+        </div>
+      </div>
+
+      <!-- ================= GAME OVER ================= -->
+      <div id="game-over" class="overlay hidden">
+        <div class="panel over-panel">
+          <div id="over-record" class="record-badge hidden">NEW RECORD!</div>
+          <h1 id="over-title" class="over-title">BORDER BREACHED</h1>
+          <p id="over-roast" class="over-roast">Sad!</p>
+          <div id="over-stats" class="over-stats"></div>
+          <button id="restart-btn" class="btn btn-primary">RUN IT BACK</button>
+          <button id="share-btn" class="btn btn-ghost">📋 COPY SCORE</button>
+        </div>
+      </div>
+
+      <!-- Rotate tip for portrait -->
+      <div id="rotate-tip" class="hidden">↻ Rotate for the full rally experience (portrait works too)</div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

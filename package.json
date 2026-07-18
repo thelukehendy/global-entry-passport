@@ -1,0 +1,19 @@
+{
+  "name": "global-entry-passport",
+  "private": true,
+  "version": "2.0.0",
+  "type": "module",
+  "description": "TRUMP'S PASSPORT PATROL — a loud 90-second arcade satire built with Three.js + Vite",
+  "scripts": {
+    "dev": "vite --host",
+    "check:audio": "node scripts/check-audio-unlock.mjs",
+    "build": "node scripts/check-audio-unlock.mjs && vite build",
+    "preview": "vite preview --host"
+  },
+  "devDependencies": {
+    "vite": "^6.0.7"
+  },
+  "dependencies": {
+    "three": "^0.172.0"
+  }
+}

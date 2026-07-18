@@ -1,8 +1,10 @@
-# TRUMP'S PASSPORT PATROL — Global Entry
+# Trump's Passport Control
 
 A loud 90-second arcade satire built with **Three.js + Vite**.
 
 Fling Global Entry passports. Rally allies beside the podium. Catch the Freedom Eagle. Five breaches and the wall falls.
+
+![Trump's Passport Control](public/images/og-preview.png)
 
 ## Run
 
@@ -26,4 +28,5 @@ Publishes `dist/` (Netlify: `netlify.toml` → publish `dist`).
 
 - `public/audio/` — whip, Trump VO (bye bye / you're fired), eagle screech
 - `public/images/splash-title.png` — splash art
+- `public/images/og-preview.png` — GitHub / link preview art (1200×630)
 - Everything else is procedural / Web Audio synth (CC0-safe)

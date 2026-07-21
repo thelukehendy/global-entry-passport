@@ -95,8 +95,11 @@ export function createUSFlagTexture(width = 1900, height = 1000) {
 export function loadUSFlagTexture(manager) {
   return new Promise((resolve) => {
     const loader = new THREE.TextureLoader(manager);
+    const base = typeof import.meta !== 'undefined' && import.meta.env?.BASE_URL
+      ? import.meta.env.BASE_URL
+      : './';
     loader.load(
-      '/textures/us-flag.png',
+      `${base}textures/us-flag.png`,
       (tex) => {
         tex.colorSpace = THREE.SRGBColorSpace;
         tex.anisotropy = 8;

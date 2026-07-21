@@ -2,6 +2,8 @@ import { defineConfig } from 'vite';
 import { resolve } from 'path';
 
 export default defineConfig({
+  // Relative base so the game works on GitHub Pages project URLs
+  // (e.g. https://thelukehendy.github.io/global-entry-passport/)
   base: './',
   server: {
     host: true,

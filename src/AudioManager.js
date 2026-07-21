@@ -2,13 +2,14 @@
 // CRITICAL: Never create AudioContext on page load. Only inside a trusted
 // user gesture (Begin Defense / unmute / TAP FOR SOUND / throw).
 import { store, pick } from './utils.js';
+import { assetUrl } from './assetUrl.js';
 
 const OPTIONAL_CLIPS = {
-  whip: '/audio/whip.mp3',
-  byeBye: '/audio/trump-bye-bye.mp3',
-  fired: '/audio/trump-youre-fired.mp3',
-  beautiful: '/audio/trump-beautiful.mp3',
-  eagle: '/audio/eagle-sound.mp3',
+  whip: assetUrl('audio/whip.mp3'),
+  byeBye: assetUrl('audio/trump-bye-bye.mp3'),
+  fired: assetUrl('audio/trump-youre-fired.mp3'),
+  beautiful: assetUrl('audio/trump-beautiful.mp3'),
+  eagle: assetUrl('audio/eagle-sound.mp3'),
 };
 
 const DEBUG_AUDIO =
@@ -860,7 +861,7 @@ export class AudioManager {
     if (!whip) return;
     try {
       if (!this._musicBed) {
-        const bed = new Audio(whip.src || '/audio/whip.mp3');
+        const bed = new Audio(whip.src || assetUrl('audio/whip.mp3'));
         bed.preload = 'auto';
         bed.loop = true;
         bed.playsInline = true;

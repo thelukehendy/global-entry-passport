@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader.js';
+import { assetUrl } from './assetUrl.js';
 
 const canvas = document.getElementById('c');
 const status = document.getElementById('status');
@@ -98,10 +99,10 @@ async function loadDenys() {
   clearRoot();
   status.textContent = 'Loading Denys Trump FBX…';
   try {
-    const fbx = await new FBXLoader().loadAsync('/models/trump-denys.fbx');
+    const fbx = await new FBXLoader().loadAsync(assetUrl('models/trump-denys.fbx'));
     let tex = null;
     try {
-      tex = await new THREE.TextureLoader().loadAsync('/models/trump-denys.png');
+      tex = await new THREE.TextureLoader().loadAsync(assetUrl('models/trump-denys.png'));
       tex.colorSpace = THREE.SRGBColorSpace;
       tex.flipY = true;
     } catch (_) {
@@ -141,7 +142,7 @@ async function loadBigT() {
   clearRoot();
   status.textContent = 'Loading Big T GLB…';
   try {
-    const gltf = await new GLTFLoader().loadAsync('/models/big-t.glb');
+    const gltf = await new GLTFLoader().loadAsync(assetUrl('models/big-t.glb'));
     const model = gltf.scene;
     const { size, s } = fit(model);
     root.add(model);
@@ -157,7 +158,7 @@ async function loadMeshy() {
   clearRoot();
   status.textContent = 'Loading Meshy Trump GLB…';
   try {
-    const gltf = await new GLTFLoader().loadAsync('/models/trump-meshy.glb');
+    const gltf = await new GLTFLoader().loadAsync(assetUrl('models/trump-meshy.glb'));
     const model = gltf.scene;
     model.traverse((o) => {
       if (o.isMesh) {

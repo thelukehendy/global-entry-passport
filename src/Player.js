@@ -7,8 +7,9 @@ import {
   createTrumpHairTexture,
   createUSFlagTexture,
 } from './textures.js';
+import { assetUrl } from './assetUrl.js';
 
-const MESHY_TRUMP_URL = '/models/trump-meshy.glb';
+const MESHY_TRUMP_URL = assetUrl('models/trump-meshy.glb');
 const TARGET_HEIGHT = 2.0;
 const PODIUM_TOP_Y = 1.65;
 
